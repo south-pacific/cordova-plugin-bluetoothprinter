@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.qinsilk.bluetoothprinter"
+        version="1.0.0">
+
+   <name>BluetoothPrinter</name>
+   <description>Cordova Bluetooth Printer Plugin</description>
+   <license>Apache 2.0</license>
+   <keywords>cordova, bluetooth, printer</keywords>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+   <js-module src="www/bluetoothPrinter.js">
+      <clobbers target="window.plugins.bluetoothPrinter" />
+   </js-module>
+
+   <!-- android -->
+   <platform name="android">
+      <config-file target="res/xml/config.xml" parent="/*">
+         <feature name="BluetoothPrinter">
+            <param name="android-package" value="com.phonegap.plugins.bluetoothprinter.BluetoothPrinter"/>
+         </feature>
+      </config-file>
+
+      <config-file target="AndroidManifest.xml" parent="/*">
+         <uses-permission android:name="android.permission.BLUETOOTH" />
+         <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+      </config-file>
+
+      <source-file src="src/android/BluetoothPrinter.java" target-dir="src/com/phonegap/plugins/bluetoothprinter" />
+
+   </platform>
+
+   <platform name="ios">
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="BluetoothPrinter">
+                <param name="ios-package" value="BluetoothPrinter"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/BluetoothPrinter.h" />
+        <source-file src="src/ios/BluetoothPrinter.m" />
+
+        <!-- frameworks -->
+        <framework src="CoreBluetooth.framework" />
+
+    </platform>
+</plugin>
