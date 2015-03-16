@@ -1,4 +1,4 @@
 Cordova-Bluetooth-Printer-Plugin
 ================================
 
-Cordova Bluetooth Printer Plugin
+做的不好，就不提交说明了，有相关需求的同学可以参考下代码，有疑问或者建议可以提issue或者发邮件给我。
